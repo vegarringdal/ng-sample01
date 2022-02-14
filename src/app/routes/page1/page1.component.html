@@ -1,2 +1,6 @@
-<p class="dark:text-gray-200">page1 works!</p>
-<cal-viewer></cal-viewer>
+<!-- dummy datepicker so I get to play with data -->
+<cal-viewer class="dark:text-white" [config]="config"></cal-viewer>
+
+<!-- dummy buttons to see what triggers changes -->
+<button class="p-2 m-2 bg-gray-700 dark:text-indigo-400 text-gray-200 w-28" (click)="addCol()">add col</button>
+<button class="p-2 m-2 bg-gray-700 dark:text-indigo-400 text-gray-200 w-28" (click)="removeCol()">remove col</button>

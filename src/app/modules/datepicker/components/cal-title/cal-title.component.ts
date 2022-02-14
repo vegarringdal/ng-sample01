@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CalConfig } from '../CalConfig';
 
 @Component({
   selector: 'cal-title',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cal-title.component.scss']
 })
 export class CalTitleComponent implements OnInit {
-
+  @Input() config!: CalConfig;
   constructor() { }
 
   ngOnInit(): void {

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CalConfig } from '../CalConfig';
 
 @Component({
   selector: 'cal-week-block',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cal-week-block.component.scss']
 })
 export class CalWeekBlockComponent implements OnInit {
-
+  @Input() config!: CalConfig;
   constructor() { }
 
   ngOnInit(): void {

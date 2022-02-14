@@ -1,1 +1,12 @@
-<p>cal-viewer works!</p>
+<!-- do angular have container free element ? -->
+<div class="flex flex-col" *ngFor="let month of months">
+  <cal-month-block [month]="month" [config]="config"></cal-month-block>
+</div>
+
+<!-- I cant do this because updates will only add/ remove last part, and rebuilding isnt very efficient
+ row -> month(1) -> month(2)
+ row -> month(2) -> month(3) -->
+
+ <!-- next update would give me this...2 row would just be of
+ row -> month(1) -> month(2) -> month(3)
+ row -> month(2) -> month(3) -> month(6) -->
