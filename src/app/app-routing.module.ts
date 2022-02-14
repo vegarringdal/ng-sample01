@@ -17,6 +17,7 @@ const routes: Routes = [
     path: 'page3',
     component: Page3Component,
   },
+  { path: '', redirectTo: 'page1', pathMatch: 'full' },
 ];
 
 @NgModule({
