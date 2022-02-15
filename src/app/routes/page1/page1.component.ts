@@ -64,6 +64,9 @@ export class Page1Component implements OnInit {
       case 'rowHeight':
         this.config.rowHeight = event.target.valueAsNumber;
         break;
+      case 'weekStartsOnSunday':
+        this.config.weekStartsOnSunday = event.target.checked;
+        break;
     }
 
     this.updateConfig();

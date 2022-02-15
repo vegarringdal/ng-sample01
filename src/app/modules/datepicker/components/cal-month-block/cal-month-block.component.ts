@@ -52,6 +52,10 @@ export class CalMonthBlockComponent implements OnInit {
 
   private setDayHeaders() {
     this.dayHeaders = this.config.dayHeaders.slice();
+    if (!this.config.weekStartsOnSunday) {
+      const sunday = this.dayHeaders.shift();
+      this.dayHeaders.push(sunday as string);
+    }
     this.updateStyles();
   }
 
