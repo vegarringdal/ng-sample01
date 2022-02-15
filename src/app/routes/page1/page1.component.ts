@@ -9,8 +9,8 @@ import { CalConfig } from 'src/app/modules/datepicker/utils/CalConfig';
 export class Page1Component implements OnInit {
   public config: CalConfig = {
     year: 2022,
-    monthColumns: 1,
-    monthRows: 2,
+    monthColumns: 3,
+    monthRows: 3,
     month: 0,
     weekStartsOnSunday: false,
     dayHeaders: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
@@ -28,7 +28,7 @@ export class Page1Component implements OnInit {
       'November',
       'December',
     ],
-    rowHeight: 20,
+    rowHeight: 40,
     monthWidth: 220,
     monthMargin: 10,
     hideDimmedDates: false,
@@ -47,24 +47,25 @@ export class Page1Component implements OnInit {
     this.updateConfig();
   }
 
-  removeCol() {
-    if (this.config.monthColumns > 0) {
-      this.config.monthColumns--;
+  setColumn(type: any, event: any) {
+    switch (type) {
+      case 'monthColumns':
+        this.config.monthColumns = event.target.valueAsNumber;
+        break;
+      case 'monthRows':
+        this.config.monthRows = event.target.valueAsNumber;
+        break;
+      case 'monthWidth':
+        this.config.monthWidth = event.target.valueAsNumber;
+        break;
+      case 'monthMargin':
+        this.config.monthMargin = event.target.valueAsNumber;
+        break;
+      case 'rowHeight':
+        this.config.rowHeight = event.target.valueAsNumber;
+        break;
     }
-    this.updateConfig();
-  }
 
-  addRow() {
-    if (this.config.monthRows >= 0) {
-      this.config.monthRows++;
-    }
-    this.updateConfig();
-  }
-
-  removeRow() {
-    if (this.config.monthRows > 0) {
-      this.config.monthRows--;
-    }
     this.updateConfig();
   }
 

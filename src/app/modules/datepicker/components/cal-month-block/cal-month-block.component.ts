@@ -14,6 +14,7 @@ export class CalMonthBlockComponent implements OnInit {
   dayOffset!: number[][];
   monthTitle!: string;
   dayHeaders!: string[];
+  currentStyles: Record<string, string> = {};
 
   constructor() {}
 
@@ -30,12 +31,10 @@ export class CalMonthBlockComponent implements OnInit {
   }
 
   private getDayBlocks() {
-
-    if(this.month > 11){
+    if (this.month > 11) {
       // larger then 11 = next year
-      this.month = this.month-11
+      this.month = this.month - 11;
     }
-    
 
     const dayBlocks = getDayBlocks(
       this.month,
@@ -46,11 +45,20 @@ export class CalMonthBlockComponent implements OnInit {
     this.dayOffset = dayBlocks.dayOffset;
   }
 
-  private setMonthTitle(){
+  private setMonthTitle() {
     this.monthTitle = this.config.monthHeaders[this.month];
+    this.updateStyles();
   }
 
-  private setDayHeaders(){
+  private setDayHeaders() {
     this.dayHeaders = this.config.dayHeaders.slice();
+    this.updateStyles();
+  }
+
+  private updateStyles() {
+    this.currentStyles = {
+      width: this.config.monthWidth + 'px',
+      margin: this.config.monthMargin + 'px',
+    };
   }
 }
