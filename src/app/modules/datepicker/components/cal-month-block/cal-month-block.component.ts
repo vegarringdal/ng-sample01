@@ -33,7 +33,7 @@ export class CalMonthBlockComponent implements OnInit {
   private getDayBlocks() {
     if (this.month > 11) {
       // larger then 11 = next year
-      this.month = this.month - 11;
+      this.month = this.month - 12;
     }
 
     const dayBlocks = getDayBlocks(
