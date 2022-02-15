@@ -10,8 +10,8 @@
  * @param rows default 1
  * @param cols default 1
  */
-export function getMonthArray(rows = 1, cols = 0) {
-  let i = 0;
+export function getMonthArray(rows = 1, cols = 0, startMonth= 0) {
+  let i = startMonth;
   let rowArr = [];
   for (let row = 0; row < rows; row++) {
     const colArr = [];

@@ -67,6 +67,12 @@ export class Page1Component implements OnInit {
       case 'weekStartsOnSunday':
         this.config.weekStartsOnSunday = event.target.checked;
         break;
+      case 'month':
+        this.config.month = event.target.valueAsNumber;
+        break;
+      case 'year':
+        this.config.year = event.target.valueAsNumber;
+        break;
     }
 
     this.updateConfig();

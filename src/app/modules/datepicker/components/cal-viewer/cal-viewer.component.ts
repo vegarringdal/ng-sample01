@@ -14,14 +14,16 @@ export class CalViewerComponent implements OnInit {
   ngOnInit(): void {
     this.months = getMonthArray(
       this.config.monthRows,
-      this.config.monthColumns
+      this.config.monthColumns,
+      this.config.month
     );
   }
 
   ngOnChanges() {
     this.months = getMonthArray(
       this.config.monthRows,
-      this.config.monthColumns
+      this.config.monthColumns,
+      this.config.month
     );
   }
 }
