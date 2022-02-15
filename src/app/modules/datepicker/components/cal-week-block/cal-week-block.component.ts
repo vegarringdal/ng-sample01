@@ -13,16 +13,19 @@ export class CalWeekBlockComponent implements OnInit {
   @Input() firstDate!: Date;
   dayNumber!: string;
   currentStyles: Record<string, string> = {};
+  isSameMonth: boolean = true;
 
   constructor() {}
 
   ngOnInit(): void {
     this.dayNumber = getDayNumberAsDoubleString(this.firstDate, this.day).day;
+    this.isSameMonth = getDayNumberAsDoubleString(this.firstDate, this.day).isSameMonth;
     this.updateStyles();
   }
 
   ngOnChanges() {
     this.dayNumber = getDayNumberAsDoubleString(this.firstDate, this.day).day;
+    this.isSameMonth = getDayNumberAsDoubleString(this.firstDate, this.day).isSameMonth;
     this.updateStyles();
   }
 
@@ -31,6 +34,7 @@ export class CalWeekBlockComponent implements OnInit {
       height: this.config.rowHeight + 'px',
       display: 'flex',
       'align-items': 'center',
+      opacity: this.isSameMonth ? '1': '0.1'
     };
   }
 }
