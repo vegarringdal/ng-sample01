@@ -8,6 +8,7 @@ import { CalConfig } from '../../utils/CalConfig';
 })
 export class CalHeaderBlockComponent implements OnInit {
   @Input() config!: CalConfig;
+  @Input() name!: string;
   constructor() { }
 
   ngOnInit(): void {

@@ -13,20 +13,30 @@ export class CalMonthBlockComponent implements OnInit {
   firstDate!: Date;
   dayOffset!: number[][];
   monthTitle!: string;
+  dayHeaders!: string[];
 
   constructor() {}
 
   ngOnInit(): void {
     this.getDayBlocks();
     this.setMonthTitle();
+    this.setDayHeaders();
   }
 
   ngOnChanges() {
     this.getDayBlocks();
     this.setMonthTitle();
+    this.setDayHeaders();
   }
 
   private getDayBlocks() {
+
+    if(this.month > 11){
+      // larger then 11 = next year
+      this.month = this.month-11
+    }
+    
+
     const dayBlocks = getDayBlocks(
       this.month,
       this.config.year,
@@ -38,5 +48,9 @@ export class CalMonthBlockComponent implements OnInit {
 
   private setMonthTitle(){
     this.monthTitle = this.config.monthHeaders[this.month];
+  }
+
+  private setDayHeaders(){
+    this.dayHeaders = this.config.dayHeaders.slice();
   }
 }

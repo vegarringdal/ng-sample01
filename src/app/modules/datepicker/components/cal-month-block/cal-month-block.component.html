@@ -1,10 +1,14 @@
-<div>{{ monthTitle }}</div>
+<div class="cal-title">{{ monthTitle }}</div>
+<div class="cal-row">
+  <div class="cal-col" *ngFor="let dayHeader of dayHeaders">
+    <cal-header-block [name]="dayHeader"></cal-header-block>
+  </div>
+</div>
 <div class="cal-row" *ngFor="let rows of dayOffset">
   <div class="cal-col" *ngFor="let col of rows">
     <cal-week-block
       [day]="col"
       [firstDate]="firstDate"
-      data-day="col"
       [config]="config"
     ></cal-week-block>
   </div>
