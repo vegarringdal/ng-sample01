@@ -30,7 +30,7 @@ export class Page1Component implements OnInit {
     ],
     rowHeight: 40,
     monthWidth: 220,
-    monthMargin: 10,
+    monthMargin: 25,
     hideDimmedDates: false,
     isoWeek: true,
     showWeek: true,
