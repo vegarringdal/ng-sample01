@@ -10,12 +10,15 @@ export type CalConfig = {
   /**
    * month to start on 0-11
    */
-  monthStart: number;
+  month: number;
   /**
-   * first day of week 0-7
-   * defaults sunday/day 7
+   * year, YYYY
    */
-  weekStartsOn: number;
+  year: number;
+  /**
+   * week start on monday be default
+   */
+  weekStartsOnSunday: boolean;
   /**
    * Header for days
    * Defaults:

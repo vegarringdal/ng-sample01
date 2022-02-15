@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CalConfig } from '../CalConfig';
+import { CalConfig } from '../../utils/CalConfig';
 
 @Component({
   selector: 'cal-title',

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalConfig } from 'src/app/modules/datepicker/utils/CalConfig';
 
 @Component({
   selector: 'app-page1',
@@ -6,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page1.component.scss'],
 })
 export class Page1Component implements OnInit {
-  public config = {
-    startYear: 2020,
-    monthColumns: 2,
+  public config: CalConfig = {
+    year: 2022,
+    monthColumns: 1,
     monthRows: 2,
-    monthStart: 0,
-    weekStartsOn: 1,
+    month: 0,
+    weekStartsOnSunday: false,
     dayHeaders: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
     monthHeaders: [
       'January',
@@ -40,12 +41,34 @@ export class Page1Component implements OnInit {
   ngOnInit(): void {}
 
   addCol() {
-    this.config.monthColumns = this.config.monthColumns + 1;
-    this.config = JSON.parse(JSON.stringify(this.config));
+    if (this.config.monthColumns >= 0) {
+      this.config.monthColumns++;
+    }
+    this.updateConfig();
   }
 
   removeCol() {
-    this.config.monthColumns = this.config.monthColumns - 1;
+    if (this.config.monthColumns > 0) {
+      this.config.monthColumns--;
+    }
+    this.updateConfig();
+  }
+
+  addRow() {
+    if (this.config.monthRows >= 0) {
+      this.config.monthRows++;
+    }
+    this.updateConfig();
+  }
+
+  removeRow() {
+    if (this.config.monthRows > 0) {
+      this.config.monthRows--;
+    }
+    this.updateConfig();
+  }
+
+  private updateConfig() {
     this.config = JSON.parse(JSON.stringify(this.config));
   }
 }

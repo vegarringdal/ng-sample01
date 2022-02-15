@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CalConfig } from '../CalConfig';
+import { CalConfig } from '../../utils/CalConfig';
+import { getMonthArray } from '../../utils/getMonthArray';
 
 @Component({
   selector: 'cal-viewer',
@@ -8,15 +9,19 @@ import { CalConfig } from '../CalConfig';
 })
 export class CalViewerComponent implements OnInit {
   @Input() config!: CalConfig;
-  months!: number[];
+  months!: number[][];
 
   ngOnInit(): void {
-
-    this.months = Array.from(Array(this.config.monthColumns + this.config.monthRows)).map((_,i) => i+1);
+    this.months = getMonthArray(
+      this.config.monthRows,
+      this.config.monthColumns
+    );
   }
 
-  ngOnChanges(){
-
-    this.months = Array.from(Array(this.config.monthColumns + this.config.monthRows)).map((_,i) => i+1);
+  ngOnChanges() {
+    this.months = getMonthArray(
+      this.config.monthRows,
+      this.config.monthColumns
+    );
   }
 }
