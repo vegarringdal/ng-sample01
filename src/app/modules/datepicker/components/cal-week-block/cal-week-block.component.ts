@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Event } from '@angular/router';
+import { getTheme } from 'src/utils/theme';
 import { CalConfig } from '../../utils/CalConfig';
+import { DateClickedService } from '../../utils/DateClickService';
 import { getDayNumberAsDoubleString } from '../../utils/getDayNumberAsDoubleString';
 
 @Component({
@@ -14,18 +17,24 @@ export class CalWeekBlockComponent implements OnInit {
   dayNumber!: string;
   currentStyles: Record<string, string> = {};
   isSameMonth: boolean = true;
+  date!: Date;
 
-  constructor() {}
+  constructor(private dateClickedService: DateClickedService) {}
 
   ngOnInit(): void {
-    this.dayNumber = getDayNumberAsDoubleString(this.firstDate, this.day).day;
-    this.isSameMonth = getDayNumberAsDoubleString(this.firstDate, this.day).isSameMonth;
+    const result = getDayNumberAsDoubleString(this.firstDate, this.day);
+    this.dayNumber = result.day;
+    this.isSameMonth = result.isSameMonth;
+    this.date = result.date;
     this.updateStyles();
   }
 
   ngOnChanges() {
     this.dayNumber = getDayNumberAsDoubleString(this.firstDate, this.day).day;
-    this.isSameMonth = getDayNumberAsDoubleString(this.firstDate, this.day).isSameMonth;
+    this.isSameMonth = getDayNumberAsDoubleString(
+      this.firstDate,
+      this.day
+    ).isSameMonth;
     this.updateStyles();
   }
 
@@ -35,8 +44,22 @@ export class CalWeekBlockComponent implements OnInit {
       width: this.config.cellWidth + 'px',
       display: 'flex',
       'align-items': 'center',
-      
-      opacity: this.isSameMonth ? '1': '0.1'
+
+      opacity: this.isSameMonth ? '1' : '0.1',
     };
+  }
+
+  onClick(event: MouseEvent) {
+    if (this.isSameMonth) {
+      this.dateClickedService.dateClicked.next({
+        date: this.date,
+        shiftKey: event.shiftKey,
+        ctrlKey: event.ctrlKey,
+      });
+    }
+  }
+
+  get isDarkMode() {
+    return getTheme() === 'dark' ? true : false;
   }
 }

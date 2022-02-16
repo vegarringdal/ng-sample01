@@ -1,1 +1,1 @@
-<div [ngStyle]="currentStyles"><span>{{ dayNumber }}</span></div>
+<div [ngStyle]="currentStyles" [attr.data-correct-month]="isSameMonth" (click)="onClick($event)"><span>{{ dayNumber }}</span></div>

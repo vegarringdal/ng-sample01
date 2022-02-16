@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CalConfig } from '../../utils/CalConfig';
 import { getDayBlocks } from '../../utils/getDayBlocks';
 
@@ -15,6 +15,10 @@ export class CalMonthBlockComponent implements OnInit {
   monthTitle!: string;
   dayHeaders!: string[];
   currentStyles: Record<string, string> = {};
+  newItemEventValue(){
+    console.log("d")
+  }
+
 
   constructor() {}
 

@@ -5,7 +5,7 @@
     margin: auto;
   }
 
-  :hover {
-    background: blue;
+  [data-correct-month="true"]:hover {
+    background-color: #111827;
   }
 }

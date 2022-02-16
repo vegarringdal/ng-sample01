@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CalConfig } from '../../utils/CalConfig';
+import { dateClickedEvent, DateClickedService } from '../../utils/DateClickService';
 import { getMonthArray } from '../../utils/getMonthArray';
+
 
 @Component({
   selector: 'cal-viewer',
@@ -10,6 +12,12 @@ import { getMonthArray } from '../../utils/getMonthArray';
 export class CalViewerComponent implements OnInit {
   @Input() config!: CalConfig;
   months!: number[][];
+
+  constructor(private dateClickedService: DateClickedService) {
+    dateClickedService.dateClicked.subscribe((event: dateClickedEvent) => {
+      console.log(event);
+    });
+  }
 
   ngOnInit(): void {
     this.months = getMonthArray(
