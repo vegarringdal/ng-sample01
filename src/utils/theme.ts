@@ -21,7 +21,6 @@ type theme = 'dark' | 'light';
  * @returns
  */
 export function getTheme() {
-  return localStorage.theme;
   if (localStorage.theme) {
     return localStorage.theme;
   }
@@ -35,7 +34,7 @@ export function getTheme() {
 /**
  * toggle theme mode
  * @param forceMode if you need to force
- * @returns 
+ * @returns
  */
 export function toggleTheme(forceMode?: theme) {
   if (forceMode) {
