@@ -21,22 +21,22 @@
   </div>
 
   <div class="flex flex-col w-28 m-2 ml-10">
-    <label>rowHeight:</label>
+    <label>cellHeight:</label>
     <input
       class="m-2 p-2 dark:text-gray-800"
       type="number"
       min="1"
-      value="{{ config.rowHeight }}"
-      (input)="setColumn('rowHeight', $event)"
+      value="{{ config.cellHeight }}"
+      (input)="setColumn('cellHeight', $event)"
     />
 
-    <label>monthWidth:</label>
+    <label>cellWidth:</label>
     <input
       class="m-2 p-2 dark:text-gray-800"
       type="number"
       min="1"
-      value="{{ config.monthWidth }}"
-      (input)="setColumn('monthWidth', $event)"
+      value="{{ config.cellWidth }}"
+      (input)="setColumn('cellWidth', $event)"
     />
   </div>
 
@@ -75,7 +75,7 @@
       class="m-2 p-2 dark:text-gray-800"
       type="number"
       min="1900"
-      value="{{ config.monthWidth }}"
+      value="{{ config.year }}"
       (input)="setColumn('year', $event)"
     />
   </div>

@@ -31,9 +31,11 @@ export class CalWeekBlockComponent implements OnInit {
 
   updateStyles() {
     this.currentStyles = {
-      height: this.config.rowHeight + 'px',
+      height: this.config.cellHeight + 'px',
+      width: this.config.cellWidth + 'px',
       display: 'flex',
       'align-items': 'center',
+      
       opacity: this.isSameMonth ? '1': '0.1'
     };
   }

@@ -1,5 +1,11 @@
 :host {
   display: block;
-
   text-align: center;
+  span {
+    margin: auto;
+  }
+
+  :hover {
+    background: blue;
+  }
 }

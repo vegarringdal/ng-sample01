@@ -34,11 +34,11 @@ export type CalConfig = {
   /**
    * height of row
    */
-  rowHeight: number;
+  cellHeight: number;
   /**
    * width of month
    */
-  monthWidth: number;
+   cellWidth: number;
   /**
    * margin between months
    */

@@ -61,7 +61,6 @@ export class CalMonthBlockComponent implements OnInit {
 
   private updateStyles() {
     this.currentStyles = {
-      width: this.config.monthWidth + 'px',
       margin: this.config.monthMargin + 'px',
     };
   }

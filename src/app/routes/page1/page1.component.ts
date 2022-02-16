@@ -28,8 +28,8 @@ export class Page1Component implements OnInit {
       'November',
       'December',
     ],
-    rowHeight: 40,
-    monthWidth: 220,
+    cellHeight: 30,
+    cellWidth: 30,
     monthMargin: 25,
     hideDimmedDates: false,
     isoWeek: true,
@@ -55,14 +55,14 @@ export class Page1Component implements OnInit {
       case 'monthRows':
         this.config.monthRows = event.target.valueAsNumber;
         break;
-      case 'monthWidth':
-        this.config.monthWidth = event.target.valueAsNumber;
+      case 'cellWidth':
+        this.config.cellWidth = event.target.valueAsNumber;
         break;
       case 'monthMargin':
         this.config.monthMargin = event.target.valueAsNumber;
         break;
-      case 'rowHeight':
-        this.config.rowHeight = event.target.valueAsNumber;
+      case 'cellHeight':
+        this.config.cellHeight = event.target.valueAsNumber;
         break;
       case 'weekStartsOnSunday':
         this.config.weekStartsOnSunday = event.target.checked;

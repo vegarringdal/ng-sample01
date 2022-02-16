@@ -2,7 +2,7 @@
   <div class="cal-title">{{ monthTitle }}</div>
   <div class="cal-row cal-day-header">
     <ng-container *ngFor="let dayHeader of dayHeaders">
-      <cal-header-block [name]="dayHeader"></cal-header-block>
+      <cal-header-block [name]="dayHeader" [config]="config"></cal-header-block>
     </ng-container>
   </div>
   <div class="cal-row" *ngFor="let rows of dayOffset">
