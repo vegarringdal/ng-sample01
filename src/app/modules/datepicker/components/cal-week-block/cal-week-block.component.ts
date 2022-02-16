@@ -3,7 +3,7 @@ import { Event } from '@angular/router';
 import { getTheme } from 'src/utils/theme';
 import { CalConfig } from '../../utils/CalConfig';
 import { DateClickedService } from '../../utils/DateClickService';
-import { getDayNumberAsDoubleString } from '../../utils/getDayNumberAsDoubleString';
+import { getDayInfo } from '../../utils/getDayInfo';
 
 @Component({
   selector: 'cal-week-block',
@@ -22,7 +22,7 @@ export class CalWeekBlockComponent implements OnInit {
   constructor(private dateClickedService: DateClickedService) {}
 
   ngOnInit(): void {
-    const result = getDayNumberAsDoubleString(this.firstDate, this.day);
+    const result = getDayInfo(this.firstDate, this.day);
     this.dayNumber = result.day;
     this.isSameMonth = result.isSameMonth;
     this.date = result.date;
@@ -30,8 +30,8 @@ export class CalWeekBlockComponent implements OnInit {
   }
 
   ngOnChanges() {
-    this.dayNumber = getDayNumberAsDoubleString(this.firstDate, this.day).day;
-    this.isSameMonth = getDayNumberAsDoubleString(
+    this.dayNumber = getDayInfo(this.firstDate, this.day).day;
+    this.isSameMonth = getDayInfo(
       this.firstDate,
       this.day
     ).isSameMonth;
