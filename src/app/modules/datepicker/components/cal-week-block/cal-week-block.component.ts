@@ -14,6 +14,7 @@ export class CalWeekBlockComponent implements OnInit {
   @Input() config!: CalConfig;
   @Input() day!: number;
   @Input() firstDate!: Date;
+  @Input() selectedDates!: Map<number, string>;
   dayNumber!: string;
   currentStyles: Record<string, string> = {};
   isSameMonth: boolean = true;
@@ -22,29 +23,30 @@ export class CalWeekBlockComponent implements OnInit {
   constructor(private dateClickedService: DateClickedService) {}
 
   ngOnInit(): void {
+    this.updateChanges();
+  }
+
+  ngOnChanges() {
+    this.updateChanges();
+  }
+
+  getColorDay() {
+    const time = this.date?.getTime();
+    return this.selectedDates?.get(time) || '';
+  }
+
+  updateChanges() {
     const result = getDayInfo(this.firstDate, this.day);
     this.dayNumber = result.day;
     this.isSameMonth = result.isSameMonth;
     this.date = result.date;
-    this.updateStyles();
-  }
 
-  ngOnChanges() {
-    this.dayNumber = getDayInfo(this.firstDate, this.day).day;
-    this.isSameMonth = getDayInfo(
-      this.firstDate,
-      this.day
-    ).isSameMonth;
-    this.updateStyles();
-  }
-
-  updateStyles() {
     this.currentStyles = {
       height: this.config.cellHeight + 'px',
       width: this.config.cellWidth + 'px',
       display: 'flex',
       'align-items': 'center',
-
+      'background-color': this.getColorDay(),
       opacity: this.isSameMonth ? '1' : '0.1',
     };
   }

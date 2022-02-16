@@ -1,5 +1,9 @@
 <div class="cal-row" *ngFor="let row of months">
   <div class="cal-col" *ngFor="let col of row">
-    <cal-month-block [month]="col" [config]="config"></cal-month-block>
+    <cal-month-block
+      [selectedDates]="selectedDates"
+      [month]="col"
+      [config]="config"
+    ></cal-month-block>
   </div>
 </div>

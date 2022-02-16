@@ -8,6 +8,7 @@
   <div class="cal-row" *ngFor="let rows of dayOffset">
     <ng-container *ngFor="let col of rows">
       <cal-week-block
+        [selectedDates]="selectedDates"
         [day]="col"
         [firstDate]="firstDate"
         [config]="config"

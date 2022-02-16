@@ -10,15 +10,13 @@ import { getDayBlocks } from '../../utils/getDayBlocks';
 export class CalMonthBlockComponent implements OnInit {
   @Input() config!: CalConfig;
   @Input() month!: number;
+  @Input() selectedDates!: Map<number, string>;
   firstDate!: Date;
   dayOffset!: number[][];
   monthTitle!: string;
   dayHeaders!: string[];
   currentStyles: Record<string, string> = {};
-  newItemEventValue(){
-    console.log("d")
-  }
-
+  
 
   constructor() {}
 
